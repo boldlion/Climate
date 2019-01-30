@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol ChangeCityDelegate {
+protocol ChangeCityDelegate: AnyObject {
     func newCityName(city: String)
 }
 
@@ -16,7 +16,7 @@ class ChangeCityViewController: UIViewController {
  
     @IBOutlet weak var changeCityTextField: UITextField!
     
-    var delegate: ChangeCityDelegate?
+    weak var delegate: ChangeCityDelegate?
 
     @IBAction func getWeatherPressed(_ sender: AnyObject) {
         
@@ -27,7 +27,7 @@ class ChangeCityViewController: UIViewController {
     }
     
     @IBAction func backButtonPressed(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
 }
