@@ -35,7 +35,7 @@ class WeatherViewController: UIViewController {
     /***************************************************************/
 
     func getWeatherData(url: String, parameters: [String : String]) {
-        Alamofire.request(url, method: .get, parameters: parameters).responseJSON { response in
+        Alamofire.request(url, method: .get, parameters: parameters).responseJSON { [unowned self] response in
             if response.result.isSuccess {
                 let weatherJSON: JSON = JSON(response.result.value!)
                 self.updateWeatherData(json: weatherJSON)
